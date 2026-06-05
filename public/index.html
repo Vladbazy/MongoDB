@@ -2,35 +2,49 @@
 <html lang="ru">
 <head>
   <meta charset="UTF-8">
-  <title>Научный журнал</title>
+  <title>Журнал (Лаба 10)</title>
   <style>
-    body { font-family: system-ui, sans-serif; max-width: 900px; margin: 2rem auto; padding: 0 1rem; }
-    .row { display: flex; gap: 0.5rem; margin: 0.5rem 0; flex-wrap: wrap; }
-    input, select, button { padding: 0.5rem; font-size: 1rem; }
+    body { font-family: system-ui, sans-serif; max-width: 950px; margin: 2rem auto; padding: 0 1rem; }
+    .row { display: flex; gap: 0.5rem; margin: 0.6rem 0; flex-wrap: wrap; align-items: center; }
+    input, select, button { padding: 0.5rem; font-size: 0.95rem; }
     button { background: #2563eb; color: #fff; border: none; cursor: pointer; border-radius: 4px; }
     button:hover { background: #1d4ed8; }
+    .icon-btn { background: none; border: none; font-size: 1.2rem; cursor: pointer; padding: 0 0.3rem; }
     ul { list-style: none; padding: 0; }
-    li { background: #f8fafc; margin: 0.3rem 0; padding: 0.6rem; border-left: 4px solid #2563eb; }
+    li { background: #f8fafc; margin: 0.4rem 0; padding: 0.7rem; border-left: 4px solid #2563eb; display: flex; justify-content: space-between; align-items: center; }
+    .top-box { background: #fef3c7; padding: 0.8rem; border-radius: 6px; margin-top: 1rem; border: 1px solid #fcd34d; }
   </style>
 </head>
 <body>
   <h1>📚 Электронный научный журнал</h1>
   
+  <!-- Панель управления -->
   <div class="row">
-    <button id="btn-list">Список статей</button>
+    <button id="btn-list">📄 Список статей</button>
+    <button id="btn-top">🏆 Топ статей</button>
+    <button id="btn-create">➕ Создать статью</button>
   </div>
   
   <div class="row">
-    <input type="text" id="title-input" placeholder="Введите название...">
-    <button id="btn-title">Поиск по названию</button>
+    <input type="text" id="title-input" placeholder="Поиск по названию...">
+    <button id="btn-title">Искать</button>
   </div>
   
   <div class="row">
     <select id="author-select"><option value="">Выберите автора</option></select>
-    <button id="btn-author">Поиск по автору</button>
+    <button id="btn-author">👤 По автору</button>
+  </div>
+
+  <div class="row">
+    <label>С:</label> <input type="date" id="date-from">
+    <label>По:</label> <input type="date" id="date-to">
+    <button id="btn-date">📅 По дате</button>
   </div>
 
   <hr>
+  
+  <div id="top-results" class="top-box" style="display:none;"></div>
+  
   <h3>Результаты:</h3>
   <div id="results"></div>
 
